@@ -8,10 +8,10 @@ class FileBlocksCompacting
   end
   FreeSpace = Data.define
 
-  attr_reader :input_contents
+  attr_reader :input
 
-  def initialize(input_contents)
-    @input_contents = input_contents.chomp
+  def initialize(input)
+    @input = input.chomp
   end
 
   def filesystem_checksum_after_file_blocks_compacting
@@ -21,7 +21,7 @@ class FileBlocksCompacting
   private
 
   def blocks
-    input_contents
+    input
       .each_char
       .each_slice(2)
       .with_index
