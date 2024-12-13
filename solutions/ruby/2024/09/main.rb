@@ -3,7 +3,7 @@
 require 'bundler/setup'
 require_relative 'lib/file_blocks_compacting'
 
-INPUT_CONTENTS = File.read File.join(__dir__, '../../../inputs/09/input')
+INPUT_CONTENTS = File.read File.join(__dir__, '../../../../inputs/2024/09/input')
 
 result = FileBlocksCompacting.new(INPUT_CONTENTS).filesystem_checksum_after_file_blocks_compacting
 puts "Filesystem checksum after file blocks compacting: #{result}"
