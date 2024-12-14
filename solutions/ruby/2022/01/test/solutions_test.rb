@@ -23,10 +23,10 @@ class TestSolutions202201 < Minitest::Test
 '
 
   def test_part_1
-    assert_equal 24000, part_1(INPUT)
+    assert_equal 24000, Solutions202201.part_1(INPUT)
   end
 
   def test_part_2
-    assert_equal 45000, part_2(INPUT)
+    assert_equal 45000, Solutions202201.part_2(INPUT)
   end
 end
