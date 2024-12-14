@@ -38,5 +38,8 @@ Style/Documentation:
 Style/NumericLiterals:
   Enabled: false
 
+Style/RedundantAssignment:
+  Enabled: false
+
 Style/SafeNavigation:
   MaxChainLength: 1
