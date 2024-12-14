@@ -20,7 +20,7 @@ AllCops:
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 
-Lint/UnreachableLoop:
+Metrics/AbcSize:
   Enabled: false
 
 Naming/VariableNumber:
