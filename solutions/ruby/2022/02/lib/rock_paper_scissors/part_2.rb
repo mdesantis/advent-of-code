@@ -73,5 +73,11 @@ module RockPaperScissors
         OUTCOMES[[opponent.shape, guessed_player_shape]]
       end
     end
+
+    class Game < Game
+      def self.round_class
+        Round
+      end
+    end
   end
 end

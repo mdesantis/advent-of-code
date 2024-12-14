@@ -1,12 +1,6 @@
 # frozen_string_literal: true
 
 module RockPaperScissors
-  Game = Data.define(:rounds) do
-    def score
-      rounds.sum(&:score)
-    end
-  end
-
   module Shape
     ROCK = :rock
     PAPER = :paper
@@ -54,6 +48,22 @@ module RockPaperScissors
 
     def score
       shape_score + outcome_score
+    end
+  end
+
+  class Game
+    def self.from_input(input)
+      new(input.split("\n").map { |input_line| round_class.from_input_line(input_line) })
+    end
+
+    attr_reader :rounds
+
+    def initialize(rounds)
+      @rounds = rounds
+    end
+
+    def score
+      rounds.sum(&:score)
     end
   end
 end
