@@ -3,20 +3,16 @@
 require 'bundler/setup'
 require 'minitest/autorun'
 require 'minitest/pride'
-
 require_relative '../lib/file_blocks_compacting'
 
 class TestFileBlocksCompactingDealingWithFileSystemFragmentation < Minitest::Test
   def test_filesystem_checksum_after_file_blocks_compacting_with_data_as_input
-    unless Object.const_defined? :DATA
-      return skip "Skipping as `DATA` constant is not defined. Execute `ruby #{__FILE__}` to run this test."
-    end
-
-    result = FileBlocksCompactingDealingWithFileSystemFragmentation
-      .new(DATA.read)
+    input = File.read(__FILE__).split("\n__END__\n")[1]
+    expected = FileBlocksCompactingDealingWithFileSystemFragmentation
+      .new(input)
       .filesystem_checksum_after_file_blocks_compacting
 
-    assert_equal 807104427291, result
+    assert_equal 807104427291, expected
   end
 end
 
