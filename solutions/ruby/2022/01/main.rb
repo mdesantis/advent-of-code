@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
+require_relative 'lib/solutions'
 
 INPUT = File.read File.join(__dir__, '../../../../inputs/2022/01/input')
 
-solution = INPUT.split("\n\n").map { |calories_list| calories_list.split("\n").sum(&:to_i) }.max
-puts "[2022/01/1] #{solution}"
-
-solution = INPUT.split("\n\n").map { |calories_list| calories_list.split("\n").sum(&:to_i) }.max(3).sum
-puts "[2022/01/2] #{solution}"
+puts "[2022/01/1] #{part_1 INPUT}"
+puts "[2022/01/2] #{part_2 INPUT}"

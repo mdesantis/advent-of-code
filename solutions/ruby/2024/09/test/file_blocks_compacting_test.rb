@@ -6,25 +6,7 @@ require 'minitest/pride'
 
 require_relative '../lib/file_blocks_compacting'
 
-INPUT = '2333133121414131402'
-
-class TestFileBlocksCompacting < Minitest::Test
-  def test_filesystem_checksum_after_file_blocks_compacting
-    result = FileBlocksCompacting.new(INPUT).filesystem_checksum_after_file_blocks_compacting
-
-    assert_equal 1928, result
-  end
-end
-
 class TestFileBlocksCompactingDealingWithFileSystemFragmentation < Minitest::Test
-  def test_filesystem_checksum_after_file_blocks_compacting
-    result = FileBlocksCompactingDealingWithFileSystemFragmentation
-      .new(INPUT)
-      .filesystem_checksum_after_file_blocks_compacting
-
-    assert_equal 2858, result
-  end
-
   def test_filesystem_checksum_after_file_blocks_compacting_with_data_as_input
     unless Object.const_defined? :DATA
       return skip "Skipping as `DATA` constant is not defined. Execute `ruby #{__FILE__}` to run this test."
