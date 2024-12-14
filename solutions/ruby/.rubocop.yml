@@ -26,6 +26,9 @@ Layout/MultilineMethodCallIndentation:
 Metrics/AbcSize:
   Enabled: false
 
+Metrics/MethodLength:
+  Max: 25
+
 Naming/VariableNumber:
   EnforcedStyle: snake_case
 
