@@ -4,7 +4,9 @@ require 'minitest/test_task'
 require 'rubocop/rake_task'
 
 Minitest::TestTask.create do |t|
-  t.test_globs = %w[**/test/**/*_test.rb]
+  # Have to specify `[0-9][0-9][0-9][0-9]` instead of `**` as the latter would also match the cached gem directory
+  # created by `ruby/setup-ruby@v1` action.
+  t.test_globs = %w[[0-9][0-9][0-9][0-9]/**/test/**/*_test.rb]
 end
 RuboCop::RakeTask.new
 

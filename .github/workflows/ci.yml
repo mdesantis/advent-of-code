@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  - push
+  - pull_request
+
+permissions:
+  contents: read
+
+jobs:
+  ruby:
+    name: CI - Ruby
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: solutions/ruby
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          working-directory: solutions/ruby
+          bundler-cache: true
+      - name: Run tests
+        run: bundle exec rake test
+      - name: Run lint checks
+        run: bundle exec rake rubocop
