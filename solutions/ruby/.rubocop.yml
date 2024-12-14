@@ -17,6 +17,9 @@ require:
 AllCops:
   NewCops: enable
 
+Layout/HeredocIndentation:
+  Enabled: false
+
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 

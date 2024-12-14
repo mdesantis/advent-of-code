@@ -6,7 +6,8 @@ require 'minitest/pride'
 require_relative '../lib/solutions'
 
 class TestSolutions202201 < Minitest::Test
-  INPUT = '1000
+  INPUT = <<-TXT
+1000
 2000
 3000
 
@@ -20,7 +21,7 @@ class TestSolutions202201 < Minitest::Test
 9000
 
 10000
-'
+  TXT
 
   def test_part_1
     assert_equal 24000, Solutions202201.part_1(INPUT)

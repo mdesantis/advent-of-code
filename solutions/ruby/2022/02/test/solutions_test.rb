@@ -6,10 +6,11 @@ require 'minitest/pride'
 require_relative '../lib/solutions'
 
 class TestSolutions202202 < Minitest::Test
-  INPUT = 'A Y
+  INPUT = <<-TXT
+A Y
 B X
 C Z
-'
+  TXT
 
   def test_part_1
     assert_equal 15, Solutions202202.part_1(INPUT)
