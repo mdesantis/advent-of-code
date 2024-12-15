@@ -3,7 +3,7 @@
 require_relative 'cathode_ray_tube'
 
 module Solutions202210
-  def part_1(input)
+  def self.part_1(input)
     cycles_of_interest = [20, 60, 100, 140, 180, 220].freeze
     signal_strengths_of_interest =
       CathodeRayTube::CPU
@@ -15,7 +15,7 @@ module Solutions202210
     signal_strengths_of_interest
   end
 
-  def part_2(input)
+  def self.part_2(input)
     screen = CathodeRayTube::Screen.new
 
     CathodeRayTube::CPU.new(input.split("\n")).each.with_index(1) do |sprite_horizontal_position, cycle|
@@ -24,6 +24,4 @@ module Solutions202210
 
     screen.to_s
   end
-
-  module_function :part_1, :part_2
 end

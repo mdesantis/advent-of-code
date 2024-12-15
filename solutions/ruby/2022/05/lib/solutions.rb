@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Solutions202205
-  def part_1(input)
+  def self.part_1(input)
     stacks_drawing_plus_legend, rearrangement_procedure = input.split("\n\n").map { |v| v.split("\n") }
     stacks_drawing = stacks_drawing_plus_legend[0..-2]
 
@@ -30,7 +30,7 @@ module Solutions202205
     stacks.map(&:last).join
   end
 
-  def part_2(input)
+  def self.part_2(input)
     stacks_drawing_plus_legend, rearrangement_procedure = input.split("\n\n").map { |v| v.split("\n") }
     stacks_drawing = stacks_drawing_plus_legend[0..-2]
 
@@ -58,6 +58,4 @@ module Solutions202205
 
     stacks.map(&:last).join
   end
-
-  module_function :part_1, :part_2
 end

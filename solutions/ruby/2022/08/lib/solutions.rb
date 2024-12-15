@@ -101,13 +101,11 @@ module Solutions202208
     end
   end
 
-  def part_1(input)
+  def self.part_1(input)
     Part1.new(input).trees_visible_from_outside_the_grid_size
   end
 
-  def part_2(input)
+  def self.part_2(input)
     Part2.new(input).max_scenic_score
   end
-
-  module_function :part_1, :part_2
 end
