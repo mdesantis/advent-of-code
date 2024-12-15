@@ -20,6 +20,8 @@ jobs:
         uses: crystal-lang/install-crystal@v1
       - name: Run tests
         run: find . -name '*_spec.cr' -exec crystal spec --order=random {} +
+      - name: Run solutions
+        run : find . -name main.cr -print0 | sort -z | xargs -0 -i crystal run {}
       - name: Check formatting
         run: |
           crystal tool format
@@ -39,5 +41,7 @@ jobs:
           bundler-cache: true
       - name: Run tests
         run: bundle exec rake test
+      - name: Run solutions
+        run : find . -name main.rb -print0 | sort -z | xargs -0 -i ruby {}
       - name: Check linting and formatting
         run: bundle exec rake rubocop
