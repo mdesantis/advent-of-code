@@ -26,6 +26,25 @@ jobs:
         run: |
           crystal tool format
           git diff --exit-code
+  elixir:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: solutions/elixir
+    name: CI - Elixir
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Elixir
+        uses: erlef/setup-beam@v1
+        with:
+          otp-version: '27.2'
+          elixir-version: '1.17.3'
+      - name: Run tests
+        run: elixir -e 'ExUnit.start()' -r '[0-9][0-9][0-9][0-9]/[0-9][0-9]/test/**/*_test.exs'
+      - name: Check formatting
+        run: mix format --check-formatted
+      - name: Run solutions
+        run: find . -name main.exs -print0 | sort -z | xargs -0 -i elixir {}
   ruby:
     name: CI - Ruby
     runs-on: ubuntu-latest
