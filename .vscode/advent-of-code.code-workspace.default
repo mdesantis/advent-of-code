@@ -15,6 +15,10 @@
 			"path": "../solutions/crystal"
 		},
 		{
+			"name": "solutions/elixir",
+			"path": "../solutions/elixir"
+		},
+		{
 			"name": "solutions/ruby",
 			"path": "../solutions/ruby"
 		}
