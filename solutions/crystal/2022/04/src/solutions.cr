@@ -1,6 +1,4 @@
 module Solutions202204
-  INPUT = File.read File.join(__DIR__, "../../../../../inputs/2022/04/input")
-
   def self.part_1(input)
     input.chomp.split("\n").count do |pairs|
       pair_1_range, pair_2_range = pairs.split(',').map do |pair|

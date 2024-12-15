@@ -1,6 +1,4 @@
 module Solutions202206
-  INPUT = File.read File.join(__DIR__, "../../../../../inputs/2022/06/input")
-
   def self.part_1(input)
     amount_of_unique_chars = 4
 

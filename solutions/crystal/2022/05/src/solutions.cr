@@ -1,6 +1,4 @@
 module Solutions202205
-  INPUT = File.read File.join(__DIR__, "../../../../../inputs/2022/05/input")
-
   def self.part_1(input)
     stacks_drawing_plus_legend, rearrangement_procedure = input.chomp.split("\n\n").map { |v| v.split("\n") }
     stacks_drawing = stacks_drawing_plus_legend[0..-2]

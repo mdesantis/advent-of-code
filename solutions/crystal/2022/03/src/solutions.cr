@@ -1,6 +1,4 @@
 module Solutions202203
-  INPUT = File.read File.join(__DIR__, "../../../../../inputs/2022/03/input")
-
   def self.part_1(input)
     priorities = (('a'..'z').to_a + ('A'..'Z').to_a).each.with_index(1).to_h
 
