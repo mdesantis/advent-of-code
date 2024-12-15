@@ -1,4 +1,11 @@
+<div align="center">
+
 # [Advent of Code](https://adventofcode.com) solutions
+
+![GitHub language count](https://img.shields.io/github/languages/count/mdesantis/advent-of-code?style=flat-square)
+![GitHub branch check runs](https://img.shields.io/github/check-runs/mdesantis/advent-of-code/main?style=flat-square)
+
+</div>
 
 ```c
       __,_,_,___)          _______
