@@ -40,7 +40,7 @@ jobs:
           otp-version: '27.2'
           elixir-version: '1.17.3'
       - name: Run tests
-        run: elixir -e 'ExUnit.start()' -r '[0-9][0-9][0-9][0-9]/[0-9][0-9]/test/**/*_test.exs'
+        run: elixir -e 'ExUnit.start()' -r '**/*_test.exs'
       - name: Check formatting
         run: mix format --check-formatted
       - name: Run solutions
