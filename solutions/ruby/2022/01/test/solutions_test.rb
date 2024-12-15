@@ -6,22 +6,7 @@ require 'minitest/pride'
 require_relative '../lib/solutions'
 
 class TestSolutions202201 < Minitest::Test
-  INPUT = <<-TXT
-1000
-2000
-3000
-
-4000
-
-5000
-6000
-
-7000
-8000
-9000
-
-10000
-  TXT
+  INPUT = File.read File.join(__dir__, '../../../../../inputs/2022/01/test_input')
 
   def test_part_1
     assert_equal 24000, Solutions202201.part_1(INPUT)

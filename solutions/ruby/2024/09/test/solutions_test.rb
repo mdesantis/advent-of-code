@@ -7,7 +7,7 @@ require 'minitest/pride'
 require_relative '../lib/solutions'
 
 class TestSolutions202409 < Minitest::Test
-  INPUT = '2333133121414131402'
+  INPUT = File.read File.join(__dir__, '../../../../../inputs/2024/09/test_input')
 
   def test_part_1
     assert_equal 1928, ::Solutions202409.part_1(INPUT)

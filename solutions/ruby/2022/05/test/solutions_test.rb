@@ -6,17 +6,7 @@ require 'minitest/pride'
 require_relative '../lib/solutions'
 
 class TestSolutions202205 < Minitest::Test
-  INPUT = <<-TXT
-    [D]
-[N] [C]
-[Z] [M] [P]
- 1   2   3
-
-move 1 from 2 to 1
-move 3 from 1 to 3
-move 2 from 2 to 1
-move 1 from 1 to 2
-  TXT
+  INPUT = File.read File.join(__dir__, '../../../../../inputs/2022/05/test_input')
 
   def test_part_1
     assert_equal 'CMZ', Solutions202205.part_1(INPUT)

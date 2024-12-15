@@ -1,16 +1,9 @@
 require "spec"
 require "../src/solutions"
 
-input = <<-TXT
-vJrwpWtwJgWrhcsFMMfFFhFp
-jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
-PmmdzqPrVvPwwTWBwg
-wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
-ttgJtRGJQctTZtZT
-CrZsJsPPZsGzwwsLwLmpwMDw
-TXT
-
 describe Solutions202203 do
+  input = File.read File.join(__DIR__, "../../../../../inputs/2022/03/test_input")
+
   describe ".part_1" do
     it { Solutions202203.part_1(input).should eq 157 }
   end

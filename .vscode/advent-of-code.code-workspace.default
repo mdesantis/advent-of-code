@@ -21,7 +21,7 @@
 	],
 	"settings": {
 		"files.associations": {
-			"input": "plaintext"
-		},
+			"inputs/**/*input*": "plaintext"
+		}
 	}
 }

@@ -1,9 +1,9 @@
 require "spec"
 require "../src/solutions"
 
-input = "mjqjpqmgbljsphdztnvjfqwrcgsmlb"
-
 describe Solutions202206 do
+  input = File.read File.join(__DIR__, "../../../../../inputs/2022/06/test_input")
+
   describe ".part_1" do
     it { Solutions202206.part_1(input).should eq 7 }
   end

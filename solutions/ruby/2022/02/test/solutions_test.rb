@@ -6,11 +6,7 @@ require 'minitest/pride'
 require_relative '../lib/solutions'
 
 class TestSolutions202202 < Minitest::Test
-  INPUT = <<-TXT
-A Y
-B X
-C Z
-  TXT
+  INPUT = File.read File.join(__dir__, '../../../../../inputs/2022/02/test_input')
 
   def test_part_1
     assert_equal 15, Solutions202202.part_1(INPUT)
