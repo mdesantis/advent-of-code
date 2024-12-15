@@ -15,8 +15,6 @@ module Solutions202202
     end
 
     class Round
-      attr_reader :opponent, :player
-
       SHAPE_SCORES = {
         Shape::ROCK => 1,
         Shape::PAPER => 2,
@@ -37,6 +35,8 @@ module Solutions202202
         Outcome::DRAW => 3,
         Outcome::LOOSE => 0
       }.freeze
+
+      attr_reader :opponent, :player
 
       def initialize(opponent, player)
         @opponent = opponent
