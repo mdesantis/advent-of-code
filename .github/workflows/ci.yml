@@ -23,9 +23,7 @@ jobs:
       - name: Run solutions
         run : find . -name main.cr -print0 | sort -z | xargs -0 -i crystal run {}
       - name: Check formatting
-        run: |
-          crystal tool format
-          git diff --exit-code
+        run: crystal tool format --check
   elixir:
     runs-on: ubuntu-latest
     defaults:
