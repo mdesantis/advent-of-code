@@ -19,13 +19,19 @@
 			"path": "../solutions/elixir"
 		},
 		{
+			"name": "solutions/nim",
+			"path": "../solutions/nim"
+		},
+		{
 			"name": "solutions/ruby",
 			"path": "../solutions/ruby"
 		}
 	],
 	"settings": {
 		"files.associations": {
-			"inputs/**/*input*": "plaintext"
+			"*.code-workspace.default": "jsonc",
+			"input": "plaintext",
+			"test_input": "plaintext"
 		}
 	}
 }
