@@ -43,6 +43,24 @@ jobs:
         run: mix format --check-formatted
       - name: Run solutions
         run: find . -name main.exs -print0 | sort -z | xargs -0 -i elixir {}
+  nim:
+    name: CI - Nim
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: solutions/nim
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Nim
+        uses: jiro4989/setup-nim-action@v2
+      - name: Run tests
+        run: find . -name '*_test.nim' -print0 | sort -z | xargs -0 -i nim r {}
+      - name: Run solutions
+        run : find . -name main.nim -print0 | sort -z | xargs -0 -i nim r {}
+      - name: Check formatting
+        run: |
+          find . -name '*.nim' -exec nimpretty --maxLineLen:100 {} +
+          git diff --exit-code
   ruby:
     name: CI - Ruby
     runs-on: ubuntu-latest
