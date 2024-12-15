@@ -8,6 +8,22 @@ permissions:
   contents: read
 
 jobs:
+  crystal:
+    name: CI - Crystal
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: solutions/crystal
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Crystal
+        uses: crystal-lang/install-crystal@v1
+      - name: Run tests
+        run: find . -name '*_spec.cr' -exec crystal spec --order=random {} +
+      - name: Check formatting
+        run: |
+          crystal tool format
+          git diff --exit-code
   ruby:
     name: CI - Ruby
     runs-on: ubuntu-latest
