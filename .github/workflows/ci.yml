@@ -80,3 +80,19 @@ jobs:
         run : find . -name main.rb -print0 | sort -z | xargs -0 -i ruby {}
       - name: Check linting and formatting
         run: bundle exec rake rubocop
+  rust:
+    name: CI - Rust
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: solutions/rust
+    env:
+      CARGO_TERM_COLOR: always
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run tests
+        run: cargo test --verbose
+      - name: Run solutions
+        run : cargo metadata --format-version 1 | jq --raw-output --exit-status .packages[].name | sort | xargs -I {} cargo run --package {}
+      - name: Check linting and formatting
+        run: cargo fmt --check
