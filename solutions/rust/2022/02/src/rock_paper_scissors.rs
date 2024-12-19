@@ -35,3 +35,21 @@ impl FromStr for Opponent {
         Ok(Opponent { shape })
     }
 }
+
+trait Round {
+    fn shape_score(&self) -> u32;
+
+    fn outcome(&self) -> Outcome;
+
+    fn outcome_score(&self) -> u32 {
+        match &self.outcome() {
+            Outcome::Win => 6,
+            Outcome::Draw => 3,
+            Outcome::Loose => 0,
+        }
+    }
+
+    fn score(&self) -> u32 {
+        &self.shape_score() + &self.outcome_score()
+    }
+}

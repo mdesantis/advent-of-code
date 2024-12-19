@@ -72,14 +72,6 @@ impl FromStr for Game {
 }
 
 impl Round {
-    fn shape_score(&self) -> u32 {
-        match &self.guess_player_shape() {
-            Shape::Rock => 1,
-            Shape::Paper => 2,
-            Shape::Scissors => 3,
-        }
-    }
-
     fn guess_player_shape(&self) -> Shape {
         match (&self.opponent.shape, &self.player.expected_outcome) {
             (Shape::Rock, Outcome::Win) => Shape::Paper,
@@ -95,6 +87,16 @@ impl Round {
             (Shape::Scissors, Outcome::Loose) => Shape::Paper,
         }
     }
+}
+
+impl super::Round for Round {
+    fn shape_score(&self) -> u32 {
+        match &self.guess_player_shape() {
+            Shape::Rock => 1,
+            Shape::Paper => 2,
+            Shape::Scissors => 3,
+        }
+    }
 
     fn outcome(&self) -> Outcome {
         match (&self.opponent.shape, &self.guess_player_shape()) {
@@ -107,22 +109,17 @@ impl Round {
             _ => Outcome::Draw,
         }
     }
-
-    fn outcome_score(&self) -> u32 {
-        match &self.outcome() {
-            Outcome::Win => 6,
-            Outcome::Draw => 3,
-            Outcome::Loose => 0,
-        }
-    }
-
-    fn score(&self) -> u32 {
-        &self.shape_score() + &self.outcome_score()
-    }
 }
 
 impl Game {
+    fn round_score(round: &impl super::Round) -> u32 {
+        round.score()
+    }
+
     pub fn score(&self) -> u32 {
-        self.rounds.iter().map(|round| round.score()).sum()
+        self.rounds
+            .iter()
+            .map(|round| Self::round_score(round))
+            .sum()
     }
 }

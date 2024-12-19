@@ -67,7 +67,7 @@ impl FromStr for Game {
     }
 }
 
-impl Round {
+impl super::Round for Round {
     fn shape_score(&self) -> u32 {
         match &self.player.shape {
             Shape::Rock => 1,
@@ -87,22 +87,17 @@ impl Round {
             _ => Outcome::Draw,
         }
     }
-
-    fn outcome_score(&self) -> u32 {
-        match &self.outcome() {
-            Outcome::Win => 6,
-            Outcome::Draw => 3,
-            Outcome::Loose => 0,
-        }
-    }
-
-    fn score(&self) -> u32 {
-        &self.shape_score() + &self.outcome_score()
-    }
 }
 
 impl Game {
+    fn round_score(round: &impl super::Round) -> u32 {
+        round.score()
+    }
+
     pub fn score(&self) -> u32 {
-        self.rounds.iter().map(|round| round.score()).sum()
+        self.rounds
+            .iter()
+            .map(|round| Self::round_score(round))
+            .sum()
     }
 }
