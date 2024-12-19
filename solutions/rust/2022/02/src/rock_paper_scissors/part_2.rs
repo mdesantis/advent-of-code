@@ -1,23 +1,6 @@
 use std::str::FromStr;
 
-#[derive(Debug)]
-enum Shape {
-    Rock,
-    Paper,
-    Scissors,
-}
-
-#[derive(Debug)]
-enum Outcome {
-    Win,
-    Loose,
-    Draw,
-}
-
-#[derive(Debug)]
-struct Opponent {
-    shape: Shape,
-}
+use super::{Opponent, Outcome, Shape};
 
 #[derive(Debug)]
 struct Player {
@@ -33,20 +16,6 @@ struct Round {
 #[derive(Debug)]
 pub struct Game {
     rounds: Vec<Round>,
-}
-
-impl FromStr for Opponent {
-    type Err = String;
-
-    fn from_str(shape_input: &str) -> Result<Self, Self::Err> {
-        let shape = match shape_input {
-            "A" => Shape::Rock,
-            "B" => Shape::Paper,
-            "C" => Shape::Scissors,
-            _ => return Err(format!("{:?} is not a valid shape", shape_input).to_string()),
-        };
-        Ok(Opponent { shape })
-    }
 }
 
 impl FromStr for Player {
