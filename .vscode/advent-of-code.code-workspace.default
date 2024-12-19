@@ -25,6 +25,10 @@
 		{
 			"name": "solutions/ruby",
 			"path": "../solutions/ruby"
+		},
+		{
+			"name": "solutions/rust",
+			"path": "../solutions/rust"
 		}
 	],
 	"settings": {
