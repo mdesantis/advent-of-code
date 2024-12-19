@@ -21,7 +21,7 @@ jobs:
       - name: Run tests
         run: find . -name '*_spec.cr' -exec crystal spec --order=random {} +
       - name: Run solutions
-        run : find . -name main.cr -print0 | sort -z | xargs -0 -i crystal run {}
+        run : find . -name main.cr -print0 | sort -z | xargs -0 -I {} crystal run {}
       - name: Check formatting
         run: crystal tool format --check
   elixir:
@@ -42,7 +42,7 @@ jobs:
       - name: Check formatting
         run: mix format --check-formatted
       - name: Run solutions
-        run: find . -name main.exs -print0 | sort -z | xargs -0 -i elixir {}
+        run: find . -name main.exs -print0 | sort -z | xargs -0 -I {} elixir {}
   nim:
     name: CI - Nim
     runs-on: ubuntu-latest
@@ -54,9 +54,9 @@ jobs:
       - name: Set up Nim
         uses: jiro4989/setup-nim-action@v2
       - name: Run tests
-        run: find . -name '*_test.nim' -print0 | sort -z | xargs -0 -i nim r {}
+        run: find . -name '*_test.nim' -print0 | sort -z | xargs -0 -I {} nim r {}
       - name: Run solutions
-        run : find . -name main.nim -print0 | sort -z | xargs -0 -i nim r {}
+        run : find . -name main.nim -print0 | sort -z | xargs -0 -I {} nim r {}
       - name: Check formatting
         run: |
           find . -name '*.nim' -exec nimpretty --maxLineLen:100 {} +
@@ -77,7 +77,7 @@ jobs:
       - name: Run tests
         run: bundle exec rake test
       - name: Run solutions
-        run : find . -name main.rb -print0 | sort -z | xargs -0 -i ruby {}
+        run : find . -name main.rb -print0 | sort -z | xargs -0 -I {} ruby {}
       - name: Check linting and formatting
         run: bundle exec rake rubocop
   rust:
