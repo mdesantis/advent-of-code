@@ -32,7 +32,7 @@ impl FromStr for Opponent {
             "C" => Shape::Scissors,
             _ => return Err(format!("{:?} is not a valid shape", shape_input).to_string()),
         };
-        Ok(Opponent { shape })
+        Ok(Self { shape })
     }
 }
 

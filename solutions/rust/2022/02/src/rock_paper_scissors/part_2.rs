@@ -32,7 +32,7 @@ impl FromStr for Player {
                 )
             }
         };
-        Ok(Player { expected_outcome })
+        Ok(Self { expected_outcome })
     }
 }
 
@@ -46,7 +46,7 @@ impl FromStr for Round {
         let player = slices.next().map(str::parse::<Player>);
 
         if let (Some(Ok(opponent)), Some(Ok(player)), None) = (opponent, player, slices.next()) {
-            Ok(Round { opponent, player })
+            Ok(Self { opponent, player })
         } else {
             Err(format!("{:?} is not a valid round", round_input).to_string())
         }
@@ -64,7 +64,7 @@ impl FromStr for Game {
             .collect::<Result<Vec<_>, _>>();
 
         if let Ok(rounds) = maybe_rounds {
-            Ok(Game { rounds })
+            Ok(Self { rounds })
         } else {
             Err(format!("{:?} are not valid rounds", maybe_rounds).to_string())
         }
