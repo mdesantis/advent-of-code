@@ -8,7 +8,7 @@ struct Player {
 }
 
 #[derive(Debug)]
-struct Round {
+pub struct Round {
     opponent: Opponent,
     player: Player,
 }
@@ -89,15 +89,10 @@ impl super::Round for Round {
     }
 }
 
-impl Game {
-    fn round_score(round: &impl super::Round) -> u32 {
-        round.score()
-    }
+impl super::Game for Game {
+    type RoundType = Round;
 
-    pub fn score(&self) -> u32 {
-        self.rounds
-            .iter()
-            .map(|round| Self::round_score(round))
-            .sum()
+    fn rounds(&self) -> &[Round] {
+        &self.rounds
     }
 }

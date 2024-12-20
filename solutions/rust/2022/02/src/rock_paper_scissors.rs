@@ -11,7 +11,7 @@ enum Shape {
 }
 
 #[derive(Debug)]
-enum Outcome {
+pub enum Outcome {
     Win,
     Loose,
     Draw,
@@ -36,7 +36,7 @@ impl FromStr for Opponent {
     }
 }
 
-trait Round {
+pub trait Round {
     fn shape_score(&self) -> u32;
 
     fn outcome(&self) -> Outcome;
@@ -51,5 +51,15 @@ trait Round {
 
     fn score(&self) -> u32 {
         &self.shape_score() + &self.outcome_score()
+    }
+}
+
+pub trait Game {
+    type RoundType: Round;
+
+    fn rounds(&self) -> &[Self::RoundType];
+
+    fn score(&self) -> u32 {
+        self.rounds().iter().map(|round| round.score()).sum()
     }
 }

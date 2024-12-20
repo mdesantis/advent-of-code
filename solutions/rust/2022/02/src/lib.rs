@@ -1,5 +1,7 @@
 mod rock_paper_scissors;
 
+use rock_paper_scissors::Game;
+
 pub fn part_1(input: &str) -> u32 {
     let game = input.parse::<rock_paper_scissors::part_1::Game>().unwrap();
 
