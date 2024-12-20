@@ -1,15 +1,13 @@
 mod rock_paper_scissors;
 
-use std::str::FromStr;
-
 pub fn part_1(input: &str) -> u32 {
-    let game = rock_paper_scissors::part_1::Game::from_str(input).unwrap();
+    let game = input.parse::<rock_paper_scissors::part_1::Game>().unwrap();
 
     game.score()
 }
 
 pub fn part_2(input: &str) -> u32 {
-    let game = rock_paper_scissors::part_2::Game::from_str(input).unwrap();
+    let game = input.parse::<rock_paper_scissors::part_2::Game>().unwrap();
 
     game.score()
 }

@@ -38,8 +38,8 @@ impl FromStr for Round {
     fn from_str(round_input: &str) -> Result<Self, Self::Err> {
         let mut slices = round_input.split(' ');
 
-        let opponent = slices.next().map(Opponent::from_str);
-        let player = slices.next().map(Player::from_str);
+        let opponent = slices.next().map(|v| v.parse::<Opponent>());
+        let player = slices.next().map(|v| v.parse::<Player>());
 
         if let (Some(Ok(opponent)), Some(Ok(player)), None) = (opponent, player, slices.next()) {
             Ok(Round { opponent, player })
@@ -56,7 +56,7 @@ impl FromStr for Game {
         let maybe_rounds = input
             .trim_end()
             .split("\n")
-            .map(|input_line| Round::from_str(input_line))
+            .map(|input_line| input_line.parse::<Round>())
             .collect::<Result<Vec<_>, _>>();
 
         if let Ok(rounds) = maybe_rounds {
