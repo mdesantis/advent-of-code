@@ -1,15 +1,15 @@
 mod rock_paper_scissors;
 
-use rock_paper_scissors::Game;
+use rock_paper_scissors::{part_1, part_2, Game};
 
 pub fn part_1(input: &str) -> u32 {
-    let game = input.parse::<rock_paper_scissors::part_1::Game>().unwrap();
+    let game = input.parse::<part_1::Game>().unwrap();
 
     game.score()
 }
 
 pub fn part_2(input: &str) -> u32 {
-    let game = input.parse::<rock_paper_scissors::part_2::Game>().unwrap();
+    let game = input.parse::<part_2::Game>().unwrap();
 
     game.score()
 }
