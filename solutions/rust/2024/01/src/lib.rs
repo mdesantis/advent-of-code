@@ -55,17 +55,13 @@ mod tests {
     const BENCH_INPUT: &str = include_str!("../../../../../inputs/2024/01/input");
 
     #[test]
-    fn test_distances_sum() {
-        let expected = 11;
-        let actual = distances_sum(INPUT);
-        assert_eq!(expected, actual);
+    fn test_part_1() {
+        assert_eq!(part_1(INPUT), 11);
     }
 
     #[test]
-    fn test_similarity_score() {
-        let expected = 31;
-        let actual = similarity_score(INPUT);
-        assert_eq!(expected, actual);
+    fn test_part_2() {
+        assert_eq!(part_2(INPUT), 31);
     }
 
     #[bench]
