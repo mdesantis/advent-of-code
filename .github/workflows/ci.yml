@@ -93,6 +93,6 @@ jobs:
       - name: Run tests
         run: cargo test --verbose
       - name: Run solutions
-        run : cargo metadata --format-version 1 | jq --raw-output --exit-status .packages[].name | sort | xargs -I {} cargo run --package {}
+        run : cargo metadata --format-version 1 | jq --raw-output --exit-status '.packages[] | select(.id | startswith("path+file://")) | .name' | sort | xargs -I {} cargo run --package {}
       - name: Check linting and formatting
         run: cargo fmt --check
